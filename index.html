@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kunbi Milan - Kunbi Samaj Shaadi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #764ba2;
+            --secondary: #667eea;
+            --light: #f8f9fa;
+            --dark: #343a40;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .main-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            overflow: hidden;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .header-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .feature-card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            margin-bottom: 20px;
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .login-form {
+            padding: 30px;
+            background: var(--light);
+            border-radius: 15px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+        
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .feature-list li:before {
+            content: "✓ ";
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .stats-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary);
+        }
+        
+        .stats-label {
+            color: var(--dark);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main-container">
+            <!-- Header Section -->
+            <div class="header-section">
+                <div class="logo">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h1>Kunbi Milan</h1>
+                <p class="tagline">Kunbi Samaj Ki Pavitra Shaadiyaan - Bilkul FREE</p>
+            </div>
+
+            <!-- Main Content -->
+            <div class="container-fluid p-4">
+                <div class="row">
+                    <!-- Left Side - Features -->
+                    <div class="col-md-6">
+                        <h3 class="mb-4"><i class="fas fa-star text-warning"></i> Hamari Khaas Baatein</h3>
+                        
+                        <div class="row">
+                            <div class="col-sm-6 mb-3">
+                                <div class="feature-card p-4 text-center">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-rupee-sign"></i>
+                                    </div>
+                                    <h5>Bilkul FREE</h5>
+                                    <p class="text-muted">Koi charge nahi, forever free</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-6 mb-3">
+                                <div class="feature-card p-4 text-center">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <h5>Kunbi Specific</h5>
+                                    <p class="text-muted">Sirf Kunbi Samaj ke liye</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-6 mb-3">
+                                <div class="feature-card p-4 text-center">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-filter"></i>
+                                    </div>
+                                    <h5>Gotra Filter</h5>
+                                    <p class="text-muted">Sagotra vivah se bachav</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-sm-6 mb-3">
+                                <div class="feature-card p-4 text-center">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <h5>Safe & Secure</h5>
+                                    <p class="text-muted">Profile verification</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Statistics -->
+                        <div class="row text-center mt-4">
+                            <div class="col-4">
+                                <div class="stats-number">500+</div>
+                                <div class="stats-label">Profiles</div>
+                            </div>
+                            <div class="col-4">
+                                <div class="stats-number">50+</div>
+                                <div class="stats-label">Successful</div>
+                            </div>
+                            <div class="col-4">
+                                <div class="stats-number">25+</div>
+                                <div class="stats-label">Districts</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Side - Login Form -->
+                    <div class="col-md-6">
+                        <div class="login-form">
+                            <h3 class="mb-4">Shuruat Karein</h3>
+                            
+                            <form id="loginForm">
+                                <div class="mb-3">
+                                    <label class="form-label">Mobile Number</label>
+                                    <input type="tel" class="form-control" placeholder="9876543210" required>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary w-100">
+                                    <i class="fas fa-mobile-alt"></i> OTP Bhejein
+                                </button>
+                            </form>
+
+                            <hr class="my-4">
+                            
+                            <h5>Features List:</h5>
+                            <ul class="feature-list">
+                                <li>Complete FREE Service</li>
+                                <li>Kunbi Samaj Specific Profiles</li>
+                                <li>Gotra & Sub-Samaj Filter</li>
+                                <li>Family Profile System</li>
+                                <li>Secure Messaging</li>
+                                <li>Community Verification</li>
+                                <li>Native Village Search</li>
+                                <li>Mobile OTP Login</li>
+                            </ul>
+
+                            <div class="alert alert-info mt-3">
+                                <small>
+                                    <i class="fas fa-info-circle"></i>
+                                    <strong>Note:</strong> Ye ek samaj-seva project hai. Koi payment nahi mangenge.
+                                </small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="bg-light py-3 text-center">
+                <p class="mb-0 text-muted">
+                    <i class="fas fa-heart text-danger"></i> 
+                    Made with Love for Kunbi Samaj 
+                    <i class="fas fa-heart text-danger"></i>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Basic Form Handling
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const mobile = document.querySelector('input[type="tel"]').value;
+            
+            if(mobile.length === 10 && /^\d+$/.test(mobile)) {
+                alert('OTP Aapke Mobile ' + mobile + ' Pe Bhej Diya Gaya Hai!\n\nDemo: OTP - 123456');
+                
+                // Yahan aap OTP verification ka code add kar sakte hain
+                setTimeout(() => {
+                    if(confirm('Kya aap OTP verify karna chahte hain?')) {
+                        alert('Profile Creation Page Pe Redirect Honge!');
+                        // window.location.href = 'profile.html';
+                    }
+                }, 2000);
+                
+            } else {
+                alert('Kripya Sahi 10-digit Mobile Number Dalein');
+            }
+        });
+
+        // Animated counter for stats (demo)
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                element.textContent = Math.floor(current) + '+';
+                if(current >= target) {
+                    element.textContent = target + '+';
+                    clearInterval(timer);
+                }
+            }, 20);
+        }
+
+        // Start animations when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const stats = document.querySelectorAll('.stats-number');
+            stats.forEach(stat => {
+                const target = parseInt(stat.textContent);
+                animateCounter(stat, target);
+            });
+        });
+    </script>
+</body>
+</html>

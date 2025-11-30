@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matches - Kunbi Milan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #764ba2;
+            --secondary: #667eea;
+            --light: #f8f9fa;
+            --dark: #343a40;
+        }
+        
+        body {
+            background: #f5f5f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .navbar {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        }
+        
+        .profile-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .profile-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .profile-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: white;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--primary);
+        }
+        
+        .match-percentage {
+            background: #28a745;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+        
+        .kunbi-tag {
+            background: var(--primary);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            margin: 2px;
+            display: inline-block;
+        }
+        
+        .filter-section {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-heart"></i> Kunbi Milan
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="profile.html">
+                    <i class="fas fa-user"></i> My Profile
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container py-4">
+        <!-- Search Filters -->
+        <div class="filter-section">
+            <h4><i class="fas fa-filter"></i> Filters</h4>
+            <div class="row">
+                <div class="col-md-3 mb-2">
+                    <select class="form-select" id="filterAge">
+                        <option value="">Age Range</option>
+                        <option value="18-25">18-25</option>
+                        <option value="26-30">26-30</option>
+                        <option value="31-35">31-35</option>
+                        <option value="36+">36+</option>
+                    </select>
+                </div>
+                <div class="col-md-3 mb-2">
+                    <select class="form-select" id="filterEducation">
+                        <option value="">Education</option>
+                        <option value="Graduate">Graduate</option>
+                        <option value="Post Graduate">Post Graduate</option>
+                        <option value="Doctorate">Doctorate</option>
+                    </select>
+                </div>
+                <div class="col-md-3 mb-2">
+                    <select class="form-select" id="filterGotra">
+                        <option value="">Gotra</option>
+                        <option value="Kashyap">Kashyap</option>
+                        <option value="Vashishtha">Vashishtha</option>
+                        <option value="Bharadwaj">Bharadwaj</option>
+                    </select>
+                </div>
+                <div class="col-md-3 mb-2">
+                    <button class="btn btn-primary w-100" onclick="applyFilters()">
+                        <i class="fas fa-search"></i> Search
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Matches Grid -->
+        <div class="row" id="matchesContainer">
+            <!-- Matches will be loaded here by JavaScript -->
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Sample matches data
+        const sampleMatches = [
+            {
+                id: 1,
+                name: "Rahil Kunbi",
+                age: 28,
+                education: "BE Computer",
+                profession: "Software Engineer",
+                income: "8-12 Lakh",
+                gotra: "Kashyap",
+                subSamaj: "Leva Patidar",
+                nativeVillage: "Shirur",
+                nativeDistrict: "Pune",
+                currentCity: "Pune",
+                matchPercent: 85,
+                gender: "Male"
+            },
+            {
+                id: 2,
+                name: "Priya Patil",
+                age: 25,
+                education: "MBA",
+                profession: "Bank Manager",
+                income: "6-8 Lakh",
+                gotra: "Vashishtha", 
+                subSamaj: "Kadava Patidar",
+                nativeVillage: "Baramati",
+                nativeDistrict: "Pune",
+                currentCity: "Mumbai",
+                matchPercent: 78,
+                gender: "Female"
+            },
+            {
+                id: 3,
+                name: "Suresh Jadhav",
+                age: 32,
+                education: "BSc Agriculture",
+                profession: "Farmer",
+                income: "5-7 Lakh",
+                gotra: "Bharadwaj",
+                subSamaj: "Leva Patidar",
+                nativeVillage: "Nashik",
+                nativeDistrict: "Nashik",
+                currentCity: "Nashik",
+                matchPercent: 65,
+                gender: "Male"
+            }
+        ];
+
+        function loadMatches() {
+            const container = document.getElementById('matchesContainer');
+            container.innerHTML = '';
+
+            sampleMatches.forEach(match => {
+                const card = `
+                    <div class="col-md-6 col-lg-4">
+                        <div class="profile-card">
+                            <div class="profile-header">
+                                <div class="profile-photo">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <h5 class="mb-1">${match.name}</h5>
+                                <div class="match-percentage">${match.matchPercent}% Match</div>
+                            </div>
+                            
+                            <div class="p-3">
+                                <div class="row mb-2">
+                                    <div class="col-6"><strong>Age:</strong> ${match.age}</div>
+                                    <div class="col-6"><strong>Education:</strong> ${match.education}</div>
+                                </div>
+                                
+                                <div class="row mb-2">
+                                    <div class="col-12"><strong>Profession:</strong> ${match.profession}</div>
+                                </div>
+                                
+                                <div class="row mb-3">
+                                    <div class="col-6"><strong>Income:</strong> ${match.income}</div>
+                                    <div class="col-6"><strong>City:</strong> ${match.currentCity}</div>
+                                </div>
+                                
+                                <div class="kunbi-tags mb-3">
+                                    <span class="kunbi-tag">${match.gotra} Gotra</span>
+                                    <span class="kunbi-tag">${match.subSamaj}</span>
+                                    <span class="kunbi-tag">${match.nativeDistrict}</span>
+                                </div>
+                                
+                                <div class="d-grid gap-2">
+                                    <button class="btn btn-outline-primary btn-sm" onclick="viewProfile(${match.id})">
+                                        <i class="fas fa-eye"></i> View Profile
+                                    </button>
+                                    <button class="btn btn-primary btn-sm" onclick="sendInterest(${match.id})">
+                                        <i class="fas fa-heart"></i> Send Interest
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                container.innerHTML += card;
+            });
+        }
+
+        function applyFilters() {
+            // Simple filter implementation
+            const ageFilter = document.getElementById('filterAge').value;
+            const educationFilter = document.getElementById('filterEducation').value;
+            
+            alert(`Filters applied!\nAge: ${ageFilter || 'Any'}\nEducation: ${educationFilter || 'Any'}`);
+            loadMatches(); // Reload matches
+        }
+
+        function viewProfile(profileId) {
+            alert(`Viewing profile ID: ${profileId}\n\nIn next phase, we'll show complete profile details!`);
+        }
+
+        function sendInterest(profileId) {
+            alert(`❤️ Interest sent to profile ${profileId}!\n\nThey will be notified about your interest.`);
+        }
+
+        // Load matches when page loads
+        document.addEventListener('DOMContentLoaded', loadMatches);
+    </script>
+</body>
+  </html>
